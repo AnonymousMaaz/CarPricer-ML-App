@@ -16,23 +16,12 @@ python manage.py runserver
 
 Then open `http://127.0.0.1:8000/`.
 
-## Render deployment (Django)
+## Render deployment
 
-Render only needs:
+**→ Full step-by-step guide: [RENDER_DEPLOY.md](RENDER_DEPLOY.md)** (env vars, secrets, model file, and service setup).
 
-- This repo pushed to GitHub
-- `requirements.txt` in the root
-- `Procfile` containing:
+You need:
 
-  ```text
-  web: gunicorn car_pricer.wsgi
-  ```
-
-In Render:
-
-1. Create **New Web Service** → **Build from GitHub**.
-2. Select this repo.
-3. Set **Build Command**: `pip install -r requirements.txt`.
-4. Set **Start Command**: `gunicorn car_pricer.wsgi`.
-5. Add environment variable `PYTHON_VERSION` matching your local version (e.g. `3.13.5`).
+- This repo on GitHub (with `requirements.txt` and `Procfile`: `web: gunicorn car_pricer.wsgi`).
+- On Render: set **Build Command** `pip install -r requirements.txt`, **Start Command** `gunicorn car_pricer.wsgi`, and the environment variables and model setup described in `RENDER_DEPLOY.md`.
 

@@ -11,10 +11,13 @@ venv/
 env/
 .venv/
 
-# Django
+# Django / env
 db.sqlite3
 staticfiles/
 media/
+.env
+.env.local
+*.env
 
 # OS / IDE
 .DS_Store
@@ -26,4 +29,8 @@ Thumbs.db
 # Not needed for deployment
 *.ipynb_checkpoints/
 plots/
+RENDER_DEPLOY.md
+
+# Model file too large for GitHub (100 MB limit); add locally or via build on Render
+models/*.pkl
 
