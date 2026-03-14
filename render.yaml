@@ -1,0 +1,17 @@
+# Force pip-based build (avoids Poetry venv missing setuptools at runtime)
+# See: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: carpricer-ml-app
+    runtime: python
+    plan: free
+    buildCommand: "pip install --upgrade pip setuptools && pip install -r requirements.txt && mkdir -p models && curl -L -o models/random_forest_model.pkl \"$MODEL_URL\""
+    startCommand: "python -m gunicorn car_pricer.wsgi"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.5"
+      - key: DJANGO_DEBUG
+        value: "0"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
