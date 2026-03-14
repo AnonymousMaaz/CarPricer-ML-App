@@ -1,7 +1,6 @@
-setuptools>=65.0.0
 asgiref==3.11.1
 Django==6.0.3
-gunicorn==20.1.0
+gunicorn==21.2.0
 joblib==1.5.3
 numpy==2.4.3
 packaging==26.0
