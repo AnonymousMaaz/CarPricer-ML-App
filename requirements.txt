@@ -1,4 +1,5 @@
 asgiref==3.11.1
+whitenoise==6.8.2
 Django==6.0.3
 gunicorn==21.2.0
 joblib==1.5.3
